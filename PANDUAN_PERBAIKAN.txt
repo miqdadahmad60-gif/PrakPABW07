@@ -1,0 +1,29 @@
+LAPOR BANJIR - VERSI SESUAI SOAL
+
+Project ini memakai autentikasi manual yang memang sudah tersedia pada ZIP awal.
+Halaman pengelolaan petugas dilindungi middleware auth. Form pelaporan warga tetap publik.
+
+LANGKAH MENJALANKAN:
+1. Buat database MySQL bernama db_laporbanjir di phpMyAdmin.
+2. Pastikan .env memakai:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=db_laporbanjir
+   DB_USERNAME=root
+   DB_PASSWORD=
+3. Jalankan terminal di folder project:
+   php artisan config:clear
+   php artisan migrate:fresh
+   php artisan storage:link
+   php artisan serve
+4. Buka http://127.0.0.1:8000/lapor-banjir/tambah untuk form warga.
+5. Register akun petugas di /register, lalu login. Pengelolaan ada di /petugas/laporan.
+
+CATATAN:
+- migrate:fresh menghapus seluruh tabel dan data lama. Gunakan hanya jika database ini khusus untuk project latihan.
+- Foto wajib JPG/JPEG/PNG dengan ukuran maksimal 2 MB.
+- Foto disimpan di storage/app/public/foto-banjir.
+- Jika foto laporan diganti, foto lama dihapus. Jika laporan dihapus, foto ikut dihapus.
+- Status tersedia: Menunggu, Diproses, Selesai.
+- Jika route lama masih tersimpan di cache, jalankan php artisan route:clear.
